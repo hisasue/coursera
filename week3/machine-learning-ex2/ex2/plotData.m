@@ -11,7 +11,10 @@ figure; hold on;
 %               2D plot, using the option 'k+' for the positive
 %               examples and 'ko' for the negative examples.
 %
-plot(X, y)
+positive = find(y==1);
+negative = find(y==0);
+plot(X(positive, 1), X(positive, 2), 'k+', 'Markersize', 7 );
+plot(X(negative, 1), X(negative, 2), 'ko', 'MarkerFaceColor', 'y','Markersize', 7);
 xlabel('Exam 1 score');
 ylabel('Exam 2 score');
 
