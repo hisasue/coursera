@@ -1,0 +1,13 @@
+ex1data1.txt
+
+first column: population of a city
+second column: profit of a food truck in that city (negative value indicates a loss)
+
+
+
+Advanced excercise
+
+Theta computed from the normal equations: 
+ 89597.909544 
+ 139.210674 
+ -8738.019113 
