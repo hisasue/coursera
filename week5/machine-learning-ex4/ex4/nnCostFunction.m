@@ -53,7 +53,14 @@ yy = [];
 for i = y'
   yy = [yy,[zeros(i-1,1);1;zeros(num_labels-i,1)]];
 end
-J = (1/m) * sum(sum(-yy .* log(a3) - (1 - yy) .* log(1 - a3)));
+t1n = size(Theta1, 2);
+t1m = size(Theta1, 1);
+t2n = size(Theta2, 2);
+t2m = size(Theta2, 1);
+reg = sum(sum((lambda/(2 * m)) * Theta1(1:t1m, 2:t1n) .^ 2)) + ...
+      sum(sum((lambda/(2 * m)) * Theta2(1:t2m, 2:t2n) .^ 2));
+J = (1/m) * sum(sum(-yy .* log(a3) - (1 - yy) .* log(1 - a3))) + reg;
+
 
 
 % Part 2: Implement the backpropagation algorithm to compute the gradients
