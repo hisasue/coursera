@@ -81,7 +81,6 @@ d3 = (a3 - yy);
 %size(d3); % 10 * 5000
 d2 = (Theta2(:,2:end))' * d3 .* sigmoidGradient(z2);
 % size(d2) % 25 * 5000
-
 Theta1_grad = (1/m) * (Theta1_grad + d2*X);
 Theta2_grad = (1/m) * (Theta2_grad + d3*a2);
 
@@ -95,14 +94,15 @@ Theta2_grad = (1/m) * (Theta2_grad + d3*a2);
 %
 
 
+%size(Theta1_grad) % 25 * 401
+
+%size(Theta1) % 25 * 401
+t1_reg = [zeros(t1m,1), ((lambda/m) * Theta1)(:,2:end)];
+t2_reg = [zeros(t2m,1), ((lambda/m) * Theta2)(:,2:end)];
 
 
-
-
-
-
-
-
+Theta1_grad = Theta1_grad + t1_reg;
+Theta2_grad = Theta2_grad + t2_reg;
 
 
 
