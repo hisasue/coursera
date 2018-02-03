@@ -15,6 +15,14 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
+m = length(X);
+X_poly = [X X_poly(:, 2:end)];
+for i = 1:m
+  for j = 1:p
+    X_poly(i, j) = X_poly(i, 1).^j;
+  end
+end
+
 
 
 
